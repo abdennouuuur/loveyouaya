@@ -49,25 +49,29 @@
             top: calc(50% + (Math.random() * 200 - 100)px);
             left: calc(50% + (Math.random() * 200 - 100)px);
         }
+        .puppy {
+            display: none;
+            margin-top: 20px;
+        }
+        .puppy.happy {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Will you go out with me?</h1>
         <div class="buttons">
-            <button class="yes">Yes</button>
+            <button class="yes" onclick="showPuppy()">Yes</button>
             <button class="no">No</button>
         </div>
+        <img src="https://i.imgur.com/XZviuO1.gif" alt="Happy Puppy" class="puppy" id="puppy">
     </div>
     <script>
-        const noButton = document.querySelector('.no');
-        noButton.addEventListener('mouseover', () => {
-            const offset = 50;
-            const newTop = Math.random() * (window.innerHeight - offset) + 'px';
-            const newLeft = Math.random() * (window.innerWidth - offset) + 'px';
-            noButton.style.top = newTop;
-            noButton.style.left = newLeft;
-        });
+        function showPuppy() {
+            const puppy = document.getElementById('puppy');
+            puppy.classList.add('happy');
+        }
     </script>
 </body>
 </html>
