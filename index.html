@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Go Out With Me?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background: #fff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d81b60;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #8e24aa;
+            color: white;
+        }
+        .no {
+            background-color: #c2185b;
+            color: white;
+        }
+        .no:hover {
+            position: absolute;
+            top: calc(50% + (Math.random() * 200 - 100)px);
+            left: calc(50% + (Math.random() * 200 - 100)px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you go out with me?</h1>
+        <div class="buttons">
+            <button class="yes">Yes</button>
+            <button class="no">No</button>
+        </div>
+    </div>
+    <script>
+        const noButton = document.querySelector('.no');
+        noButton.addEventListener('mouseover', () => {
+            const offset = 50;
+            const newTop = Math.random() * (window.innerHeight - offset) + 'px';
+            const newLeft = Math.random() * (window.innerWidth - offset) + 'px';
+            noButton.style.top = newTop;
+            noButton.style.left = newLeft;
+        });
+    </script>
+</body>
+</html>
