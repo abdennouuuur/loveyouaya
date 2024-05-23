@@ -20,7 +20,7 @@
             padding: 50px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: relative; /* Added */
+            position: relative;
         }
         h1 {
             color: #d81b60;
@@ -57,21 +57,41 @@
         .puppy.happy {
             display: block;
         }
+        .form-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .form-container.active {
+            display: block;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>AYA, zennn l7obb isn't there any chance you could go out with mee?</h1>
+        <h1>Will you go out with me?</h1>
         <div class="buttons">
-            <button class="yes" onclick="showPuppy()">Yes</button>
+            <button class="yes" onclick="showForm()">Yes</button>
             <button class="no" onclick="moveNo()">No</button>
         </div>
-        <img src="https://github.com/abdennouuuur/loveyouaya/blob/main/happy-puppy.gif?raw=true" alt="Happy Puppy" class="puppy" id="puppy">
+        <div class="form-container" id="form-container">
+            <form>
+                <label for="location">Where would you like to go on our first date?</label><br>
+                <input type="text" id="location" name="location" placeholder="Enter location"><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <img src="images/happy-puppy.gif" alt="Happy Puppy" class="puppy" id="puppy">
     </div>
     <script>
-        function showPuppy() {
-            const puppy = document.getElementById('puppy');
-            puppy.classList.add('happy');
+        function showForm() {
+            const formContainer = document.getElementById('form-container');
+            formContainer.classList.add('active');
         }
 
         function moveNo() {
@@ -85,3 +105,4 @@
     </script>
 </body>
 </html>
+
