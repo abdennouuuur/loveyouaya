@@ -20,6 +20,7 @@
             padding: 50px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative; /* Added */
         }
         h1 {
             color: #d81b60;
@@ -63,14 +64,23 @@
         <h1>Will you go out with me?</h1>
         <div class="buttons">
             <button class="yes" onclick="showPuppy()">Yes</button>
-            <button class="no">No</button>
+            <button class="no" onclick="moveNo()">No</button>
         </div>
-        <img src="https://i.imgur.com/XZviuO1.gif" alt="Happy Puppy" class="puppy" id="puppy">
+        <img src="images/happy-puppy.gif" alt="Happy Puppy" class="puppy" id="puppy">
     </div>
     <script>
         function showPuppy() {
             const puppy = document.getElementById('puppy');
             puppy.classList.add('happy');
+        }
+
+        function moveNo() {
+            const noButton = document.querySelector('.no');
+            const offset = 50;
+            const newTop = Math.random() * (window.innerHeight - offset) + 'px';
+            const newLeft = Math.random() * (window.innerWidth - offset) + 'px';
+            noButton.style.top = newTop;
+            noButton.style.left = newLeft;
         }
     </script>
 </body>
